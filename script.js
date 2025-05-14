@@ -8,19 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function createParticle() {
         const particle = document.createElement('div');
-        const size = Math.random() * 8 + 4; // Slightly larger size for stars
+        const size = Math.random() * 5 + 2;
         
-        particle.classList.add('star'); // Add star class instead of inline styles
+        particle.style.position = 'absolute';
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
+        particle.style.background = 'rgba(255, 255, 255, 0.7)';
+        particle.style.borderRadius = '50%';
+        particle.style.boxShadow = '0 0 ' + size + 'px rgba(255, 255, 255, 0.7)';
         
         // Random position
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
         
-        // Random twinkle animation
-        const duration = Math.random() * 3 + 2;
-        particle.style.animation = `float ${duration}s linear infinite, twinkle ${duration * 0.5}s ease-in-out infinite`;
+        // Animation
+        particle.style.animation = `float ${Math.random() * 3 + 2}s linear infinite`;
         
         particlesContainer.appendChild(particle);
     }
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         setTimeout(() => {
             playButton.style.transform = 'scale(1.05)';
-            window.location.href = 'game.html';
+           window.location.href = 'game.html';
         }, 100);
     });
 });
