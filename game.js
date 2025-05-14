@@ -341,9 +341,22 @@ document.addEventListener("keydown", checkKey);
 startButton.addEventListener("click", initGame);
 restartButton.addEventListener("click", initGame);
 endGameButton.addEventListener("click", function () {
-    // Instead of redirecting, just reload the current page
-    window.location.reload();
+    window.location.href = "index.html";
 });
+window.addEventListener("load", function () {
+    // This is to force the user back to the starting page
+    if (performance.navigation && performance.navigation.type === 1) {
+        // Only redirect if not on index.html
+        if (
+            !window.location.pathname.endsWith("index.html") &&
+            window.location.pathname !== "/"
+        ) {
+            window.location.href = "/index.html";
+        }
+    }
+});
+
+
 
 const particles = [];
 const ACCELERATION = 0.0007; // particles acceleration
