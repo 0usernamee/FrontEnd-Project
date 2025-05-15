@@ -494,19 +494,16 @@ body {
 }
 
 .life-message {
-    composes: celebration-message;
     top: 150px;
     color: #4CAF50;
 }
 
 .slow-message {
-    composes: celebration-message;
     top: 190px;
     color: #7fcbff;
 }
 
 .bonus-message {
-    composes: celebration-message;
     top: 230px;
     color: #ffd700;
 }
